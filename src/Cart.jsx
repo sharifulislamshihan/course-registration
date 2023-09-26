@@ -8,11 +8,13 @@ const Cart = ({selectedCourse}) => {
             
             <h2 className=" text-xl font-bold text-black my-4 ">Course Name</h2>
 
-            <ol className="list-decimal text-slate-500 text-lg font-medium ">
-                <li>jdfh</li>
-                <li>jdfh</li>
-                <li>jdfh</li>
-            </ol>
+            {
+                selectedCourse.map((course) => (
+                    <ol className="list-decimal text-slate-500 text-lg font-medium ">
+                        <li>{course.courseName}</li>
+                    </ol>
+                ))
+            }
 
             <h3 className=" my-10 text-base font-semibold ">Total Credit Hour : <span>13</span></h3>
 
