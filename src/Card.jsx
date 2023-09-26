@@ -57,7 +57,7 @@ const Card = () => {
 
     return (
         <div id="Container" className="flex  flex-col sm:ml-10 lg:flex-row">
-            <div className=" w-full lg:w-2/3 gap-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+            <div className=" w-full lg:w-2/3 gap-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {
                     course.map((course) => (
                     <div key={course.id} className='w-72 h-96 p-3 mx-auto'>
