@@ -67,12 +67,12 @@ const Card = () => {
 
                         <div className='flex gap-7 '>
                             <div className='flex gap-1' >
-                                <img className=' w-4 h-5 ' src="../Asset/dollar-sign 1.png" alt="" />
+                                <img className=' w-4 h-5 ' src="https://i.ibb.co/Fg4svH6/dollar-sign-1.png" alt="" />
                                 <p className=' text-sm text-slate-600'>Price : {course.price}</p>
                             </div>
 
                             <div className='flex gap-1'>
-                                <img className='w-4 h-5' src="../Asset/Frame.png" alt="" />
+                                <img className='w-4 h-5' src="https://i.ibb.co/DRCYdNd/Frame.png" alt="" />
                                 <p className=' text-sm text-slate-600'>Credit : {course.credit}</p>
                             </div>
                         </div>
