@@ -1,4 +1,5 @@
 const Cart = ({selectedCourse, remainingCredit, total, totalCredit}) => {
+
     return (
         <div>
             <h2 className=" text-blue-500 text-xl font-bold my-8 pb-2 ">Credit Hour Remaining {remainingCredit} hr</h2>
@@ -6,13 +7,8 @@ const Cart = ({selectedCourse, remainingCredit, total, totalCredit}) => {
             
             <h2 className=" text-xl font-bold text-black my-4 ">Course Name</h2>
 
-            {
-                selectedCourse.map((course) => (
-                    <ol className=" text-slate-500 text-lg font-medium ">
-                        <li key={course.id} >{course.courseName}</li>
-                    </ol>
-                ))
-            }
+            {selectedCourse.map((course) => (
+                <li key={course.id} className="text-slate-500 text-lg font-medium">{course.courseName}</li>))}
 
             <h3 className=" my-10 text-base font-semibold ">Total Credit Hour : {totalCredit}</h3>
 
