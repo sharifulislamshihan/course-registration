@@ -13,7 +13,7 @@ const Card = () => {
     const [totalCredit, setTotalCredit] = useState([]); 
 
     useEffect(() => {
-        fetch("../public/info.json")
+        fetch("info.json")
             .then((res) => res.json())
             .then((data) => setCourse(data));
     }, []);
