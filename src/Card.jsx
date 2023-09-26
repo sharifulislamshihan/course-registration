@@ -1,10 +1,16 @@
 import { useEffect } from "react";
 import Cart from "./Cart";
 import { useState } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Card = () => {
 
     const [course, setCourse] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState([]);
+    const [total, setTotal] = useState([]); 
+    const [remainingCredit, setRemainingCredit] = useState([]);
+    const [totalCredit, setTotalCredit] = useState([]); 
 
     useEffect(() => {
         fetch("../public/info.json")
@@ -13,9 +19,40 @@ const Card = () => {
     }, []);
 
     const handleSelectedCourse = (course) =>{
-        setSelectedCourse([...selectedCourse, course]);
+        const isAvailable = selectedCourse.find((item) =>item.id == course.id
+        );
+        let total = course.price;
+        let totalCredit = course.credit;
+        let remainingCredit  = 20 - totalCredit;
+        if(isAvailable){
+            toast.error('You have already selected this course.', {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 2000,
+            });
+        }
+        else{
+
+            selectedCourse.forEach((item) => {
+                total = total + item.price;
+                remainingCredit = remainingCredit - item.credit;
+                totalCredit = totalCredit + item.credit;
+            });
+
+            if(remainingCredit < 0){
+                toast.error('Credit limit exceeded', {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 2000,
+                });
+            }
+            else{
+                setTotal(total);
+                setRemainingCredit(remainingCredit);
+                setTotalCredit(totalCredit);
+                setSelectedCourse([...selectedCourse, course]);
+            }
+        }
     };
-    console.log(selectedCourse);
+
 
 
     return (
@@ -45,7 +82,7 @@ const Card = () => {
                 }
             </div>
             <div className=" mx-auto ">
-                <Cart selectedCourse= {selectedCourse}></Cart>
+                <Cart selectedCourse= {selectedCourse} remainingCredit = {remainingCredit} total = {total} totalCredit = {totalCredit}></Cart>
             </div>
         </div>
     );
