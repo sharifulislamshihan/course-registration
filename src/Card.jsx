@@ -56,11 +56,11 @@ const Card = () => {
 
 
     return (
-        <div id="Container" className="flex flex-col lg:flex-row mx-auto">
-            <div className="lg:w-2/3 gap-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+        <div id="Container" className="flex  flex-col sm:ml-10 lg:flex-row">
+            <div className=" w-full lg:w-2/3 gap-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
                 {
                     course.map((course) => (
-                    <div key={course.id} className='w-72 h-96 p-3'>
+                    <div key={course.id} className='w-72 h-96 p-3 mx-auto'>
                         <img className='pb-4' src={course.image} alt="Image" />
                         <h2 className=' text-base font-bold pb-4'>{course.courseName}</h2>
                         <p className=' text-slate-600 pb-4 '><small>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</small></p>
